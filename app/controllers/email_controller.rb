@@ -17,8 +17,15 @@ class EmailController < ApplicationController
       	format.html { redirect_to email_index_path }
      	format.js { }
     end
+	end
+	
+	def destroy
+    @email.destroy
+    respond_to do |format|
+	      format.html { redirect_to email_index_path }
+	      format.js { }
+    end
   end
-
 
 	def index
 		@email = Email.all 
